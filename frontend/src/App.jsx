@@ -12,16 +12,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <TypewriterEffectDemo/>,
-  },
-  {
-    path:"/manvi",
-    element:<div>HIi</div>
-  }
-]);
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -35,7 +26,7 @@ function App() {
   return (
     <>
     <div className='h-full w-full'>
-      <Herosection></Herosection>
+      <TypewriterEffectDemo></TypewriterEffectDemo>
    </div>
       </>
   )
