@@ -16,7 +16,7 @@ function App() {
   return (
     <>
     <div className='h-full w-full'>
-   <HeroSection></HeroSection>
+    <TypewriterEffectDemo/>
    
    </div>
       </>
