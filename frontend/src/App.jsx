@@ -5,6 +5,7 @@ import './globals.css'
 import { ThreeDCardDemo } from './components/test/3d-card-demo'
 import { TypewriterEffectDemo } from './components/test/typewriter-effect-demo'
 import HeroSection from './components/ui/hero-section'
+import LoginSignupForm from './components/ui/LoginSignupForm'
 import {
   BrowserRouter, Routes, Route,
 } from 'react-router-dom';
@@ -16,8 +17,7 @@ function App() {
   return (
     <>
     <div className='h-full w-full'>
-   <HeroSection></HeroSection>
-   
+      <Herosection></Herosection>
    </div>
       </>
   )
