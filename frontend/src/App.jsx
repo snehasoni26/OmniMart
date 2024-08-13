@@ -7,6 +7,7 @@ import { TypewriterEffectDemo } from './components/test/typewriter-effect-demo'
 import HeroSection from './components/ui/hero-section'
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
+import LoginSignupForm from './components/ui/LoginSignupForm'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -34,8 +35,7 @@ function App() {
   return (
     <>
     <div className='h-full w-full'>
-    <TypewriterEffectDemo/>
-   
+      <Herosection></Herosection>
    </div>
       </>
   )
