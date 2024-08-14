@@ -8,14 +8,17 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { TypewriterEffectDemo } from './components/test/typewriter-effect-demo.jsx';
+import HeroSection from './components/ui/hero-section.jsx';
+import LoginSignupForm from './components/ui/LoginSignupForm.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
-  },
+    element:<TypewriterEffectDemo/>  },
   {
-    path:"/manvi",
-    element:<div>HIi</div>
+    path:"/login",
+    element:<LoginSignupForm/>
   }
 ]);
 
