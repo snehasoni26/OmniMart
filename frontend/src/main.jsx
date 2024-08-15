@@ -11,7 +11,7 @@ import {
 import { TypewriterEffectDemo } from './components/test/typewriter-effect-demo.jsx';
 import HeroSection from './components/ui/hero-section.jsx';
 import LoginSignupForm from './components/ui/LoginSignupForm.jsx';
-
+import StoreLocator from './components/ui/store-locator.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +19,10 @@ const router = createBrowserRouter([
   {
     path:"/login",
     element:<LoginSignupForm/>
+  },
+  {
+    path:"/location",
+    element:<StoreLocator/>
   }
 ]);
 
