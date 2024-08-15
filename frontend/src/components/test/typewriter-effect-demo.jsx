@@ -1,5 +1,5 @@
 import { TypewriterEffect } from "../ui/typewriter-effect";
-
+import { useNavigate } from "react-router-dom";
 export function TypewriterEffectDemo() {
   const words = [
     {
@@ -16,7 +16,7 @@ export function TypewriterEffectDemo() {
       className: "text-blue-500 dark:text-blue-500",
     },
   ];
-
+  const navigate = useNavigate();
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen h-full w-full">
       {/* Background image div with opacity */}
@@ -37,7 +37,7 @@ export function TypewriterEffectDemo() {
         <button className="w-40 h-10 rounded-xl bg-gray-700 border dark:border-white border-transparent text-white text-sm shadow-lg shadow-blue-500/50 hover:shadow-blue-500/100 transition">
           Join now
         </button>
-        <button className="w-40 h-10 text-black rounded-xl bg-white border dark:border-white border-transparent text-sm shadow-lg shadow-blue-500/50 hover:shadow-blue-500/100 transition">
+        <button className="w-40 h-10 text-black rounded-xl bg-white border dark:border-white border-transparent text-sm shadow-lg shadow-blue-500/50 hover:shadow-blue-500/100 transition" onClick={() => navigate("/signup")}>
           Signup
         </button>
       </div>
