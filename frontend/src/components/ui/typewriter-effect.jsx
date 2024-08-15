@@ -47,7 +47,7 @@ export const TypewriterEffect = ({
                   initial={{}}
                   key={`char-${index}`}
                   className={cn(
-                    `dark:text-white text-black opacity-0 hidden`,
+                    `dark:text-white text-white opacity-0 hidden`,
                     word.className
                   )}
                 >
@@ -113,7 +113,7 @@ export const TypewriterEffectSmooth = ({
               {word.text.map((char, index) => (
                 <span
                   key={`char-${index}`}
-                  className={cn(`dark:text-white text-black `, word.className)}
+                  className={cn(`dark:text-white text-white `, word.className)}
                 >
                   {char}
                 </span>
@@ -127,7 +127,7 @@ export const TypewriterEffectSmooth = ({
   };
 
   return (
-    <div className={cn("flex space-x-1 my-6", className)}>
+    <div className={cn("flex space-x-1 my-6 absolute inset-0 bg-[url('/path/to/your/image.jpg')] bg-cover bg-center opacity-100", className)}>
       <motion.div
         className="overflow-hidden pb-2"
         initial={{
@@ -143,7 +143,7 @@ export const TypewriterEffectSmooth = ({
         }}
       >
         <div
-          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold"
+          className="text-xs sm:text-base md:text-xl lg:text:3xl xl:text-5xl font-bold "
           style={{
             whiteSpace: "nowrap",
           }}
