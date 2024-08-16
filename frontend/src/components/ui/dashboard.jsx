@@ -1,15 +1,63 @@
 import React from 'react'
 import Product from './product';
-
+import { useState } from 'react';
 const products = [
-  { id: 1, price: 500, url: 'https://images.pexels.com/photos/6167328/pexels-photo-6167328.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Chocolate', rating: 4 },
-  { id: 2, price: 300, url: 'https://images.pexels.com/photos/6167327/pexels-photo-6167327.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Vanilla', rating: 5 },
-  { id: 3, price: 250, url: 'https://images.pexels.com/photos/1234567/pexels-photo-1234567.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Strawberry', rating: 3 },
-  { id: 4, price: 400, url: 'https://images.pexels.com/photos/2345678/pexels-photo-2345678.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Mint', rating: 4 },
-  { id: 5, price: 150, url: 'https://images.pexels.com/photos/3456789/pexels-photo-3456789.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Lemon', rating: 5 },
-  { id: 6, price: 200, url: 'https://images.pexels.com/photos/4567890/pexels-photo-4567890.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Mango', rating: 2 },
-  { id: 7, price: 350, url: 'https://images.pexels.com/photos/5678901/pexels-photo-5678901.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Pineapple', rating: 3 },
-  { id: 8, price: 450, url: 'https://images.pexels.com/photos/6789012/pexels-photo-6789012.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Coconut', rating: 5 },
+  {
+    id: 1,
+    price: 500,
+    url: "https://images.pexels.com/photos/6167328/pexels-photo-6167328.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Chocolate",
+    rating: 4,
+  },
+  {
+    id: 2,
+    price: 300,
+    url: "https://images.pexels.com/photos/1739347/pexels-photo-1739347.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Vanilla",
+    rating: 5,
+  },
+  {
+    id: 3,
+    price: 250,
+    url: "https://images.pexels.com/photos/6944172/pexels-photo-6944172.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Strawberry",
+    rating: 3,
+  },
+  {
+    id: 4,
+    price: 400,
+    url: "https://images.pexels.com/photos/1264000/pexels-photo-1264000.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Mint",
+    rating: 4,
+  },
+  {
+    id: 5,
+    price: 150,
+    url: "https://images.pexels.com/photos/1414110/pexels-photo-1414110.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Lemon",
+    rating: 5,
+  },
+  {
+    id: 6,
+    price: 200,
+    url: "https://images.pexels.com/photos/918643/pexels-photo-918643.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Mango",
+    rating: 2,
+  },
+  {
+    id: 7,
+    price: 350,
+    url: "https://images.pexels.com/photos/947879/pexels-photo-947879.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Pineapple",
+    rating: 3,
+  },
+  {
+    id: 8,
+    price: 450,
+    url: "https://images.pexels.com/photos/1424457/pexels-photo-1424457.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Coconut",
+    rating: 5,
+  },
   { id: 9, price: 600, url: 'https://images.pexels.com/photos/7890123/pexels-photo-7890123.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Blueberry', rating: 4 },
   { id: 10, price: 350, url: 'https://images.pexels.com/photos/8901234/pexels-photo-8901234.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Raspberry', rating: 3 },
   { id: 11, price: 250, url: 'https://images.pexels.com/photos/9012345/pexels-photo-9012345.jpeg?auto=compress&cs=tinysrgb&w=600', title: 'Peach', rating: 4 },
@@ -30,18 +78,39 @@ const products = [
 ];
 
 export function Dashboard() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  // Filter products based on the search term
+  const filteredProducts = products.filter(product =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
-      {products.map((product) => (
-        <Product
-          key={product.id}
-          id={product.id}
-          price={product.price}
-          url={product.url}
-          title={product.title}
-          rating={product.rating}
+    <div className="p-6">
+      {/* Search Input */}
+      <div className="mb-4">
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full p-2 border border-gray-300 rounded-lg"
         />
-      ))}
+      </div>
+
+      {/* Product Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {filteredProducts.map(product => (
+          <Product
+            key={product.id}
+            id={product.id}
+            price={product.price}
+            url={product.url}
+            title={product.title}
+            rating={product.rating}
+          />
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { PencilIcon } from '@heroicons/react/outline';
-
+import { useNavigate } from 'react-router-dom';
 const UserProfile = () => {
 //   const [activeTab, setActiveTab] = useState('profile');
   const [profileImage, setProfileImage] = useState("https://via.placeholder.com/150");
-
+  const navigate = useNavigate();
   const userData = {
     userName: "JohnDoe123",
     email: "johndoe@example.com",
@@ -138,7 +138,7 @@ const UserProfile = () => {
           </button>
           <button 
             className={`px-4 py-2 mx-2 rounded-lg bg-gray-600`}
-            // onClick={() => setActiveTab('wishlist')}
+             onClick={() => navigate('/wishlist')}
           >
             Wishlist
           </button>

@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import WishlistItem from "./WishlistItem";
-
+import { useNavigate } from "react-router-dom";
 const initialProductList = [
   {
     id: 1,
@@ -12,49 +13,49 @@ const initialProductList = [
   {
     id: 2,
     price: 300,
-    url: "https://images.pexels.com/photos/6167327/pexels-photo-6167327.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "https://images.pexels.com/photos/1739347/pexels-photo-1739347.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "Vanilla",
     rating: 5,
   },
   {
     id: 3,
     price: 250,
-    url: "https://images.pexels.com/photos/1234567/pexels-photo-1234567.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "https://images.pexels.com/photos/6944172/pexels-photo-6944172.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "Strawberry",
     rating: 3,
   },
   {
     id: 4,
     price: 400,
-    url: "https://images.pexels.com/photos/2345678/pexels-photo-2345678.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "https://images.pexels.com/photos/1264000/pexels-photo-1264000.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "Mint",
     rating: 4,
   },
   {
     id: 5,
     price: 150,
-    url: "https://images.pexels.com/photos/3456789/pexels-photo-3456789.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "https://images.pexels.com/photos/1414110/pexels-photo-1414110.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "Lemon",
     rating: 5,
   },
   {
     id: 6,
     price: 200,
-    url: "https://images.pexels.com/photos/4567890/pexels-photo-4567890.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "https://images.pexels.com/photos/918643/pexels-photo-918643.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "Mango",
     rating: 2,
   },
   {
     id: 7,
     price: 350,
-    url: "https://images.pexels.com/photos/5678901/pexels-photo-5678901.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "https://images.pexels.com/photos/947879/pexels-photo-947879.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "Pineapple",
     rating: 3,
   },
   {
     id: 8,
     price: 450,
-    url: "https://images.pexels.com/photos/6789012/pexels-photo-6789012.jpeg?auto=compress&cs=tinysrgb&w=600",
+    url: "https://images.pexels.com/photos/1424457/pexels-photo-1424457.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "Coconut",
     rating: 5,
   },
@@ -146,7 +147,7 @@ const initialProductList = [
 
 const Wishlist = () => {
   const [wishlist, setWishlist] = useState(initialProductList);
-
+  const navigate = useNavigate("/dashboard");
   const handleRemove = (id) => {
     const updatedWishlist = wishlist.filter((item) => item.id !== id);
     setWishlist(updatedWishlist);
@@ -162,7 +163,7 @@ const Wishlist = () => {
       </div>
       <div className="text-center mt-10">
         <button 
-          className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+          className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" onClick={()=>{Navigate("/dashboard")}}
         >
           Add More Products to Wishlist
         </button>

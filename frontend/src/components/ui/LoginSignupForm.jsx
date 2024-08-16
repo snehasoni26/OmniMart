@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 const LoginSignupForm = () => {
   const [isLogin, setIsLogin] = useState(true);
   const toggleForm = () => setIsLogin(!isLogin);
-
+  const navigate = useNavigate();
   return (
+   
     <div className="min-h-screen flex items-center justify-center bg-gray-900 ">
       <div className="bg-gray-800 p-8 rounded-lg shadow-lg max-w-md w-full">
         <h2 className="text-3xl underline font-semibold text-center text-blue-300 hover:shadow-blue-500 mb-6">
@@ -91,7 +92,7 @@ const LoginSignupForm = () => {
           )}
 
           <button
-            type="submit"
+            type="submit" onClick={()=>{navigate("/dashboard")}}
             className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors"
           >
             {isLogin ? 'Login' : 'Sign Up'}

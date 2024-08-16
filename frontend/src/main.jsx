@@ -17,6 +17,10 @@ import Navbar from './components/ui/navbar.jsx';
 import Layout from './components/ui/Layout.jsx';
 import Product from './components/ui/product.jsx';
 import Dashboard from './components/ui/dashboard.jsx';
+import Wishlist from './components/ui/Wishlist.jsx';
+import PaymentPortal from './components/ui/payment-gateway.jsx';
+import StoreList from './components/ui/store-list.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,6 +50,19 @@ const router = createBrowserRouter([
         path: "/dashboard",
         element: <Dashboard/>
       },
+      {
+        path: "/wishlist",
+        element: <Wishlist/>
+      },
+      {
+        path: "/payment",
+        element: <PaymentPortal/>
+      },
+      {
+        path: "/store-list",
+        element: <StoreList/>
+      },
+      
     ],
   },
   // Add other routes that should not have the Navbar here

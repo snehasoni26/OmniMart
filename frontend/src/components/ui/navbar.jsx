@@ -32,7 +32,7 @@ function Navbar() {
           OmniMart
         </div>
 
-        {/* Search Bar */}
+        {/* Search Bar
         <div className="flex items-center">
           <input
             type="text"
@@ -47,7 +47,7 @@ function Navbar() {
           >
             Search
           </button>
-        </div>
+        </div> */}
 
         {/* Hamburger Icon (Mobile) */}
         <div className="md:hidden">
