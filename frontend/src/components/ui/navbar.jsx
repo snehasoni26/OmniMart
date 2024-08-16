@@ -5,6 +5,7 @@ import { FaUserCircle } from "react-icons/fa";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
   const handleNavigation = (path) => {
@@ -16,12 +17,36 @@ function Navbar() {
     setIsProfileOpen(!isProfileOpen);
   };
 
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      // Navigate to search results page with the query
+      navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
   return (
     <nav className="bg-gray-900 text-white px-4 py-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="text-2xl font-bold cursor-pointer" onClick={() => handleNavigation("/")}>
           OmniMart
+        </div>
+
+        {/* Search Bar */}
+        <div className="flex items-center">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search..."
+            className="px-4 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            onClick={handleSearch}
+            className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none"
+          >
+            Search
+          </button>
         </div>
 
         {/* Hamburger Icon (Mobile) */}
@@ -36,7 +61,7 @@ function Navbar() {
         {/* Links */}
         <div className={`flex-col md:flex-row md:flex md:items-center ${isOpen ? 'flex' : 'hidden'} md:space-x-6`}>
           <span
-            onClick={() => handleNavigation("/home")}
+            onClick={() => handleNavigation("/profile")}
             className="block px-4 py-2 mt-2 text-sm font-semibold text-gray-400 hover:text-white cursor-pointer"
           >
             Home
@@ -48,7 +73,7 @@ function Navbar() {
             Store Locator
           </span>
           <span
-            onClick={() => handleNavigation("/products")}
+            onClick={() => handleNavigation("/dashboard")}
             className="block px-4 py-2 mt-2 text-sm font-semibold text-gray-400 hover:text-white cursor-pointer"
           >
             Products
