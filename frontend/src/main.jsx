@@ -15,6 +15,8 @@ import StoreLocator from './components/ui/store-locator.jsx';
 import UserProfile from './components/ui/UserProfile.jsx';
 import Navbar from './components/ui/navbar.jsx';
 import Layout from './components/ui/Layout.jsx';
+import Product from './components/ui/product.jsx';
+import Dashboard from './components/ui/dashboard.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <UserProfile />
+      },
+      {
+        path: "/product",
+        element: <Product/>
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard/>
       },
     ],
   },
