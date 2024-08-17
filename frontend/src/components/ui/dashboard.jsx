@@ -1,5 +1,6 @@
 import React from "react";
 import Product from "./product";
+import { useNavigate } from "react-router-dom";
 
 const products = [
   {
@@ -180,11 +181,12 @@ const products = [
 ];
 
 export function Dashboard() {
+  const navigate= useNavigate();
   return (
     <div className="min-h-screen bg-gray-900 p-8">
       <div className="text-center">
         <button 
-          className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+          className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600" onClick={()=>{navigate("/qr-scanner")}}
         >
           Start Shopping
         </button>

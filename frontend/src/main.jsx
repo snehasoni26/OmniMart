@@ -20,7 +20,10 @@ import Dashboard from './components/ui/dashboard.jsx';
 import Wishlist from './components/ui/Wishlist.jsx';
 import PaymentPortal from './components/ui/payment-gateway.jsx';
 import StoreList from './components/ui/store-list.jsx';
-
+import CartQRScanner from './components/ui/CartQRScanner.jsx';
+import ProductScanner from './components/ui/ProductScanner.jsx';
+import QrReader from './components/ui/qr-scanner.jsx';
+import Cart from './components/ui/Cart.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -61,6 +64,22 @@ const router = createBrowserRouter([
       {
         path: "/store-list",
         element: <StoreList/>
+      },
+      {
+        path: "/cart-scanner",
+        element: <CartQRScanner/>
+      },
+      {
+        path: "/product-scanner",
+        element: <ProductScanner/>
+      },
+      {
+        path: "/qr-scanner",
+        element: <QrReader/>
+      },
+      {
+        path: "/cart",
+        element: <Cart/>
       },
       
     ],

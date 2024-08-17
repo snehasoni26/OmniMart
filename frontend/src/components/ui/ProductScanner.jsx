@@ -12,6 +12,7 @@ const ProductScanner = () => {
     try {
       const response = await fetch(`/api/items/${itemId}`);
       const data = await response.json();
+      console.log(data)
       setItemDetails(data);
     } catch (err) {
       setError('Failed to fetch item details.');
